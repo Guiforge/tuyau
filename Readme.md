@@ -1,6 +1,6 @@
 # Tuyau
 
-[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/guiforge/tuyau)
+[![Version](https://img.shields.io/badge/version-1.1-blue.svg)](https://github.com/guiforge/tuyau)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe.

@@ -1,6 +1,6 @@
 """Library allowing using tuyau like pipe."""
 
-__version__ = "1.0"
+__version__ = "1.1"
 
 from collections.abc import Callable
 from typing import Any

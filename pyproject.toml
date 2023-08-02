@@ -1,6 +1,6 @@
 [project]
 name = "tuyau"
-version = "1.0"
+version = "1.1"
 dependencies = []
 description = "Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe."
 authors = [{name = "Guillaume Pouyat", email="guillaume.pouyat@protonmail.com"}]
