@@ -1,3 +1,28 @@
+[project]
+name = "Tuyau"
+version = "1.0"
+dependencies = []
+description = "Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe."
+authors = ["Guillaume Pouyat <guillaume.pouyat@protonmail.com>"]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+keywords = ["pipe", "tube", "tuyau"]
+
+
+[project.urls]
+Homepage = "https://github.com/Guiforge/tuyau"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+
 [tool.black]
 line-length = 100 # override black's default line-length
 exclude = '''
