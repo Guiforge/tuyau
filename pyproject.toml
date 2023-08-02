@@ -3,13 +3,15 @@ name = "Tuyau"
 version = "1.0"
 dependencies = []
 description = "Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe."
-authors = ["Guillaume Pouyat <guillaume.pouyat@protonmail.com>"]
+authors = [{name = "Guillaume Pouyat", email="guillaume.pouyat@protonmail.com"}]
 license = { file = "LICENSE" }
 readme = "README.md"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
 ]
 requires-python = ">=3.10"
 keywords = ["pipe", "tube", "tuyau"]
