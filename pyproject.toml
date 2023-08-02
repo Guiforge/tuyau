@@ -1,11 +1,11 @@
 [project]
-name = "Tuyau"
+name = "tuyau"
 version = "1.0"
 dependencies = []
 description = "Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe."
 authors = [{name = "Guillaume Pouyat", email="guillaume.pouyat@protonmail.com"}]
 license = { file = "LICENSE" }
-readme = "README.md"
+readme = "Readme.md"
 classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
