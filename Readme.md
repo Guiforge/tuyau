@@ -11,13 +11,13 @@ for name in names:
     len(hash(upper_case(decode(name))))
 
 # After
-tuyau = Tuyau(decode, upper_case, hash, len)
+tube = Tube(decode, upper_case, hash, len)
 
 for name in names:
-    tuyau(name)
+    tube(name)
 
 # or alternative
-tuyau.send(name)
+tube.send(name)
 ```
 
 ## Installation
@@ -35,7 +35,7 @@ pip install tuyau
 To create a Tuyau, you can pass a sequence of callable steps to the constructor. Each step should be a callable that takes one argument and returns a value of any type.
 
 ```python
-from tuyau_library import Tuyau
+from tuyau import Tube
 
 def add_one(number: int) -> int:
     """Simple step: add one to the number."""
@@ -45,7 +45,8 @@ def multiply_by_two(number: int) -> int:
     """Simple step: multiply the number by two."""
     return number * 2
 
-tuyau = Tuyau(add_one, multiply_by_two)
+tube = Tube(add_one, multiply_by_two)
+print(tube.send(1)) # 4
 ```
 
 ### Processing Values
@@ -53,14 +54,14 @@ tuyau = Tuyau(add_one, multiply_by_two)
 You can process values through the Tuyau by calling it as if it were a function. The value will go through each step in the sequence and get transformed accordingly.
 
 ```python
-result = tuyau(5)
+result = tube(5)
 print(result)  # Output: 12 (5 + 1 = 6, 6 * 2 = 12)
 ```
 
 You can also use the `send()` method, which is an alias for calling the Tuyau directly.
 
 ```python
-result = tuyau.send(5)
+result = tube.send(5)
 print(result)  # Output: 12
 ```
 
@@ -69,9 +70,9 @@ print(result)  # Output: 12
 Here's an example using lambda functions as steps:
 
 ```python
-tuyau = Tuyau(lambda x: x + 1, lambda x: x * 2)
+tube = Tube(lambda x: x + 1, lambda x: x * 2)
 
-result = tuyau(3)
+result = tube(3)
 print(result)  # Output: 8 (3 + 1 = 4, 4 * 2 = 8)
 ```
 
