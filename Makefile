@@ -1,38 +1,7 @@
 .PHONY: clean clean-test clean-pyc clean-build docs help
 .DEFAULT_GOAL := help
 
-
-define INCREMENT_VERSION
-import os
-import re
-
-_is_beta = os.environ.get("IS_BETA", "false")
-VERSION_LIB = os.environ["VERSION_LIB"]
-
-new_version = VERSION_LIB
-if _is_beta == "true":
-    new_version = f"{VERSION_LIB}.dev0"
-
-if new_version:
-    print(f"\033[92m New version: {new_version} \033[0m")
-
-    list_file = ["setup.py", "setup.cfg", "tuyau/__init__.py"]
-    for filename in list_file:
-        print(f"\033[92m [+] update : {filename} \033[0m")
-        with open(filename) as f:
-            _data_file = f.read()
-        _data_file = re.sub("__VERSION_LIB__", new_version, _data_file)
-        with open(filename, "w") as f:
-            f.write(_data_file)
-
-
-endef
-export INCREMENT_VERSION
-
 BROWSER := python3.10 -c "$$BROWSER_PYSCRIPT"
-
-help:
-	@python3.10 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
@@ -80,9 +49,6 @@ lint: warn-no-venv  lint/black lint/ruff lint/mypy lint/bandit lint/safety lint/
 test: warn-no-venv ## run tests quickly with the default Python
 	.venv/bin/pytest -vvv
 
-test-all: warn-no-venv lint
-	.venv/bin/pytest -vvv
-
 pre-commit:
 	.venv/bin/pre-commit run --all-files
 
@@ -91,15 +57,6 @@ coverage: warn-no-venv ## check code coverage quickly with the default Python
 	.venv/bin/coverage report -m
 	.venv/bin/coverage html
 	$(BROWSER) htmlcov/index.html
-
-
-release: upgrade-version dist ## package and upload a release
-	pip hash dist/*
-	twine upload -r tuyau-feed --config-file $(PYPIRC_PATH) dist/*
-
-beta-release: beta-upgrade-version dist ## package and upload a release beta
-	pip hash dist/*
-	twine upload -r tuyau-feed --config-file $(PYPIRC_PATH) dist/*
 
 dist: clean ## builds source and wheel package
 	pip install setuptools twine wheel
@@ -123,10 +80,3 @@ dev-install:
 	@echo '----'
 	@echo "🚧  \e[93m Warning: don't forget to execute : \e[39m\e[4msource .venv/bin/activate\e[24m \e[39m🚧"
 	@echo "🧊🚀  \e[92mHave a good day of coding \e[39m 🚀🧊"
-
-
-upgrade-version:
-	python3 -c "$$INCREMENT_VERSION"
-
-beta-upgrade-version:
-	env IS_BETA=true python3 -c "$$INCREMENT_VERSION"
