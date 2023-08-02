@@ -1,0 +1,4 @@
+recursive: true
+skips: ['B101']
+exclude_dirs:
+  [".venv", "__pycache__"]

@@ -1,0 +1,15 @@
+coverage
+twine
+
+pytest
+pytest-env
+black
+bandit
+mypy
+safety
+pytest-asyncio
+pep8-naming
+pre-commit
+pip-licenses
+ruff
+pre-commit
