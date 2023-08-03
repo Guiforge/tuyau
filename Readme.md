@@ -116,3 +116,13 @@ launch linters
 ## License
 
 This library is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Todo
+
+- [ ] Async Support
+- [ ] Parallel Processing / asyncio.gather / multiprocess
+- [ ] Lazy Evaluation ?
+- [ ] Input Validation, with type checking at runtime
+- [ ] Hooks
+- [ ] Timing and Profiling
+- [ ] Caching ?
