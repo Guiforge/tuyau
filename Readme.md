@@ -75,10 +75,10 @@ tube = Tube(lambda x: x + 1, lambda x: x * 2)
 result = tube(3)
 print(result)  # Output: 8 (3 + 1 = 4, 4 * 2 = 8)
 ```
-## Typing
+
 ## Typing
 
-The `Tube` class is designed to support typing for both input and output. 
+The `Tube` class is designed to support typing for both input and output.
 
 ```python
 from tuyau import Tube
@@ -103,6 +103,7 @@ result2: str = tube(3)# Output: "6" str(3 + 1 * 2)
 Contributions are welcome! If you find a bug or have a suggestion for improvement, please create an issue or a pull request on [GitHub](https://github.com/guiforge/tuyau).
 
 ### Local dev
+
 install .venv with all dev dep  
 `make dev-install`  
 
