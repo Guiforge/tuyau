@@ -1,6 +1,6 @@
 # Tuyau
 
-[![Version](https://img.shields.io/badge/version-1.1-blue.svg)](https://github.com/guiforge/tuyau)
+[![Version](https://img.shields.io/badge/version-1.2-blue.svg)](https://github.com/guiforge/tuyau)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Tuyau is a library that allows you to process values through a sequence of steps, similar to a pipe.
@@ -74,6 +74,28 @@ tube = Tube(lambda x: x + 1, lambda x: x * 2)
 
 result = tube(3)
 print(result)  # Output: 8 (3 + 1 = 4, 4 * 2 = 8)
+```
+## Typing
+## Typing
+
+The `Tube` class is designed to support typing for both input and output. 
+
+```python
+from tuyau import Tube
+
+def add_one(num: int) -> int:
+    return num + 1
+
+def multiply_by_two(num: int) -> int:
+    return num * 2
+
+# Create Tube with multiple callables that take and return int
+tube: Tube[int, int] = Tube(add_one, multiply_by_two)
+tube: Tube[int, str] = Tube(add_one, multiply_by_two, str)
+
+# Process integers through the tubes
+result: int = tube(3)# Output: 6 (3 + 1 * 2) 
+result2: str = tube(3)# Output: "6" str(3 + 1 * 2) 
 ```
 
 ## Contributing
